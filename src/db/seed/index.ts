@@ -2,7 +2,7 @@
 import { faker } from '@faker-js/faker'
 import chalk from 'chalk'
 import { restaurants, users } from '../schema'
-import { db } from './connection-db'
+import { db } from '../connection-db'
 
 /**
  * Reset database
