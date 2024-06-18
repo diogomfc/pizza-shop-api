@@ -1,6 +1,7 @@
 {
   "name": "pizzashop-api",
   "version": "1.0.50",
+  "module": "src/http/server.ts",
   "scripts": {
     "dev": "bun run --watch src/http/server.ts",
     "build": "bun build src/http/server.ts",
@@ -9,7 +10,8 @@
     "seed": "bun ./src/db/seed",
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
-    "studio": "drizzle-kit studio"
+    "studio": "drizzle-kit studio",
+    "lint": "eslint --fix src --ext ts"
   },
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
@@ -21,8 +23,11 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@rocketseat/eslint-config": "^2.2.2",
     "bun-types": "latest",
-    "drizzle-kit": "^0.22.7"
-  },
-  "module": "src/http/server.ts"
+    "drizzle-kit": "^0.22.7",
+    "eslint": "^8.5.0",
+    "eslint-plugin-drizzle": "^0.2.3",
+    "typescript": "^5.4.5"
+  }
 }
