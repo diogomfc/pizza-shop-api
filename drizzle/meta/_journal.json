@@ -36,6 +36,13 @@
       "when": 1718829471187,
       "tag": "0004_abandoned_salo",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1718829590257,
+      "tag": "0005_light_bruce_banner",
+      "breakpoints": true
     }
   ]
 }
