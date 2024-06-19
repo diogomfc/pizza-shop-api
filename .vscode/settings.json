@@ -4,6 +4,8 @@
     "elysia",
     "Elysia",
     "elysiajs",
-    "postgres"
+    "ilike",
+    "postgres",
+    "typebox"
   ]
 }

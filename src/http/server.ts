@@ -11,6 +11,7 @@ import { approveOrder } from './routes/orders/approve-order'
 import { dispatchOrder } from './routes/orders/dispatch-order'
 import { deliverOrder } from './routes/orders/deliver-order'
 import { cancelOrder } from './routes/orders/cancel-order'
+import { getOrders } from './routes/orders/get-orders'
 // import { UnauthorizedError } from './errors/unauthorized-error'
 
 const app = new Elysia()
@@ -25,6 +26,7 @@ const app = new Elysia()
   .use(dispatchOrder)
   .use(deliverOrder)
   .use(cancelOrder)
+  .use(getOrders)
   .onError(({ code, error, set }) => {
     switch (code) {
       case 'VALIDATION': {
