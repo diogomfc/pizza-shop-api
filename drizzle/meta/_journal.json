@@ -29,6 +29,13 @@
       "when": 1718829252378,
       "tag": "0003_faulty_frightful_four",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1718829471187,
+      "tag": "0004_abandoned_salo",
+      "breakpoints": true
     }
   ]
 }
