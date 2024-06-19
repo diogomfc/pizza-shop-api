@@ -10,7 +10,7 @@ import dayjs from 'dayjs'
 
 export const authenticateFromLink = new Elysia().use(auth).get(
   '/auth-links/authenticate',
-  async ({ query, jwt, cookie: { auth }, set }) => {
+  async ({ query, signUser, set }) => {
     const { code, redirect } = query
 
     // Verificar se o código existe no banco de dados
@@ -41,19 +41,24 @@ export const authenticateFromLink = new Elysia().use(auth).get(
       },
     })
 
-    // Gerar um token JWT
-    const token = await jwt.sign({
+    await signUser({
       sub: authLinkFromCode.userId,
       restauranteId: managedRestaurante?.id,
     })
 
+    // Gerar um token JWT
+    // const token = await jwt.sign({
+    //   sub: authLinkFromCode.userId,
+    //   restauranteId: managedRestaurante?.id,
+    // })
+
     // Setar o token JWT no cookie
-    auth.set({
-      httpOnly: true,
-      maxAge: 60 * 60 * 24 * 7, // 7 dias
-      path: '/',
-      value: token,
-    })
+    // auth.set({
+    //   httpOnly: true,
+    //   maxAge: 60 * 60 * 24 * 7, // 7 dias
+    //   path: '/',
+    //   value: token,
+    // })
 
     // Deletar o link de autenticação
     await db.delete(authLinks).where(eq(authLinks.code, code))
