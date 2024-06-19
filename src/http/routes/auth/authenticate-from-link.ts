@@ -1,7 +1,5 @@
 import Elysia, { t } from 'elysia'
 
-// import dayjs from 'dayjs'
-
 import { eq } from 'drizzle-orm'
 import { db } from '@/db/connection-db'
 import { auth } from '@/http/auth'
