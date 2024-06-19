@@ -32,7 +32,10 @@ export const createRestaurante = new Elysia().post(
       restaurantName: t.String(),
       managerName: t.String(),
       phone: t.String(),
-      email: t.String({ format: 'email' }),
+      email: t.String({
+        format: 'email',
+        errorMessage: { format: 'must be a valid email address' },
+      }),
     }),
   },
 )

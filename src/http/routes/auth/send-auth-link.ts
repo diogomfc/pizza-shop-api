@@ -37,7 +37,10 @@ export const sendAuthLink = new Elysia().post(
   },
   {
     body: t.Object({
-      email: t.String({ format: 'email' }),
+      email: t.String({
+        format: 'email',
+        // errorMessage: { format: 'must be a valid email address' },
+      }),
     }),
   },
 )
