@@ -11,7 +11,6 @@ export const getMonthOrdersAmount = new Elysia()
   .use(auth)
   .get('/metrics/month-orders-amount', async ({ getCurrentUser }) => {
     const { restauranteId } = await getCurrentUser()
-
     if (!restauranteId) {
       throw new UnauthorizedError()
     }
