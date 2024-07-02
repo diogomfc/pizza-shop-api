@@ -1,6 +1,7 @@
 import { db } from '@/db/connection-db'
 import { auth } from '@/http/auth'
 import { UnauthorizedError } from '@/http/errors/unauthorized-error'
+import { and } from 'drizzle-orm'
 import Elysia, { t } from 'elysia'
 
 export const getOrderDetails = new Elysia().use(auth).get(
@@ -44,7 +45,10 @@ export const getOrderDetails = new Elysia().use(auth).get(
         },
       },
       where(fields, { eq }) {
-        return eq(fields.id, orderId)
+        return and(
+          eq(fields.id, orderId),
+          eq(fields.restaurantId, restauranteId),
+        )
       },
     })
 
